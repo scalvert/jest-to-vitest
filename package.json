@@ -1,6 +1,14 @@
 {
   "name": "jest-to-vitest",
   "version": "0.1.0",
+  "keywords": [
+    "codemod-cli"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/scalvert/jest-to-vitest.git"
+  },
+  "bin": "./bin/cli.js",
   "scripts": {
     "lint": "eslint --cache .",
     "test": "codemod-cli test",
@@ -8,10 +16,9 @@
     "update-docs": "codemod-cli update-docs",
     "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
   },
-  "bin": "./bin/cli.js",
-  "keywords": [
-    "codemod-cli"
-  ],
+  "jest": {
+    "testEnvironment": "node"
+  },
   "dependencies": {
     "codemod-cli": "^3.2.0",
     "jscodeshift": "^0.13.1",
@@ -23,12 +30,30 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "jest": "^26.6.3"
+    "jest": "^26.6.3",
+    "prettier": "^2.5.1",
+    "release-it": "^14.2.1",
+    "release-it-lerna-changelog": "^3.1.0"
   },
   "engines": {
     "node": "10.* || 12.* || >= 14"
   },
-  "jest": {
-    "testEnvironment": "node"
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "release-it": {
+    "plugins": {
+      "release-it-lerna-changelog": {
+        "infile": "CHANGELOG.md",
+        "launchEditor": true
+      }
+    },
+    "git": {
+      "tagName": "v${version}"
+    },
+    "github": {
+      "release": true,
+      "tokenRef": "GITHUB_AUTH"
+    }
   }
 }
