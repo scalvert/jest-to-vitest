@@ -12,7 +12,7 @@
   "scripts": {
     "build": "tsc",
     "lint": "eslint --cache .",
-    "test": "yarn build && codemod-cli test",
+    "test": "yarn build && yarn lint && codemod-cli test",
     "test:coverage": "yarn build && codemod-cli test --coverage",
     "update-docs": "codemod-cli update-docs",
     "prepublish": "yarn build",

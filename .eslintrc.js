@@ -9,6 +9,7 @@ module.exports = {
     node: true,
   },
   rules: {},
+  ignorePatterns: ['transforms/**/*.js'],
   overrides: [
     {
       files: ['__tests__/**/*.js'],
