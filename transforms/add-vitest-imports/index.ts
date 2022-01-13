@@ -1,7 +1,10 @@
-const { getParser } = require('codemod-cli').jscodeshift;
-const addImports = require('jscodeshift-add-imports');
+import { FileInfo, API } from 'jscodeshift';
+import codemodCli from 'codemod-cli';
+import addImports from 'jscodeshift-add-imports';
 
-module.exports = function transformer(file, api) {
+const { getParser } = codemodCli.jscodeshift;
+
+export default function transformer(file: FileInfo, api: API) {
   const j = getParser(api);
   const root = j(file.source);
   const apis = [];
@@ -23,6 +26,6 @@ module.exports = function transformer(file, api) {
     wrapColumn: 100,
     trailingComma: true,
   });
-};
+}
 
 module.exports.type = 'js';

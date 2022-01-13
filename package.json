@@ -10,12 +10,16 @@
   },
   "bin": "./bin/cli.js",
   "scripts": {
+    "build": "tsc",
     "lint": "eslint --cache .",
-    "test": "codemod-cli test",
-    "test:coverage": "codemod-cli test --coverage",
+    "test": "yarn build && codemod-cli test",
+    "test:coverage": "yarn build && codemod-cli test --coverage",
     "update-docs": "codemod-cli update-docs",
+    "prepublish": "yarn build",
+    "postinstall": "yarn build",
     "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
   },
+  "license": "MIT",
   "jest": {
     "testEnvironment": "node"
   },
@@ -25,6 +29,7 @@
     "jscodeshift-add-imports": "^1.0.10"
   },
   "devDependencies": {
+    "@types/jscodeshift": "^0.11.3",
     "coveralls": "^3.1.0",
     "eslint": "^8.6.0",
     "eslint-config-prettier": "^8.3.0",
@@ -33,7 +38,8 @@
     "jest": "^26.6.3",
     "prettier": "^2.5.1",
     "release-it": "^14.2.1",
-    "release-it-lerna-changelog": "^3.1.0"
+    "release-it-lerna-changelog": "^3.1.0",
+    "typescript": "^4.5.4"
   },
   "engines": {
     "node": "10.* || 12.* || >= 14"
