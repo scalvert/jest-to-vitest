@@ -15,7 +15,7 @@
     "test": "yarn build && yarn lint && codemod-cli test",
     "test:coverage": "yarn build && codemod-cli test --coverage",
     "update-docs": "codemod-cli update-docs",
-    "prepublish": "yarn build",
+    "prepublishOnly": "yarn build",
     "postinstall": "yarn build",
     "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
   },

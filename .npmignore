@@ -1,0 +1,13 @@
+.github/
+.eslintignore
+.eslintcache
+.eslintrc.js
+np.github/workflows/ci.yml
+.prettierrc
+@types/codemod-cli.d.ts
+CHANGELOG.md
+RELEASE.md
+**/__testfixtures__/**
+**/transforms/**/test.js
+**/*.ts
+tsconfig.json
